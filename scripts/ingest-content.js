@@ -13,131 +13,215 @@ const categoryMap = {
   '06-Culture.md': 'culture',
 };
 
-// Helper function to extract section content
-function extractSection(content, sectionTitle) {
-  const regex = new RegExp(`##\\s+${sectionTitle}[\\s\\S]*?(?=##|$)`, 'i');
-  const match = content.match(regex);
-  return match ? match[0].replace(new RegExp(`##\\s+${sectionTitle}`, 'i'), '').trim() : '';
-}
-
-// Helper function to parse TL;DR section
-function parseTLDR(content) {
-  if (!content) return { summary: '', priority: null };
-
-  const lines = content.split('\n').filter(line => line.trim() && !line.match(/^---+$/));
-  let summary = '';
-  let priority = null;
-
-  lines.forEach(line => {
-    // Check for priority indicators
-    if (line.includes('🔴') && line.includes('**')) {
-      // Match: 🔴 **Critical Priority**: Text
-      const match = line.match(/🔴\s*\*\*([^:]+?):\*\*:?\s*(.+)/);
-      if (match) {
-        priority = {
-          level: 'critical',
-          title: match[1].trim(),
-          text: match[2].trim(),
-        };
-      }
-    } else if (line.includes('🟡') && line.includes('**')) {
-      const match = line.match(/🟡\s*\*\*([^:]+?):\*\*:?\s*(.+)/);
-      if (match) {
-        priority = {
-          level: 'important',
-          title: match[1].trim(),
-          text: match[2].trim(),
-        };
-      }
-    } else if (!line.includes('🔴') && !line.includes('🟡') && !line.includes('🟢')) {
-      // Regular content (not a priority marker)
-      summary += line.trim() + ' ';
+// Helper function to extract section content by heading
+function extractSection(content, ...headings) {
+  for (const heading of headings) {
+    const regex = new RegExp(`##\\s+${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[\\s\\S]*?(?=##|$)`, 'i');
+    const match = content.match(regex);
+    if (match) {
+      return match[0].replace(new RegExp(`##\\s+${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i'), '').trim();
     }
-  });
-
-  return {
-    summary: summary.trim(),
-    priority,
-  };
+  }
+  return '';
 }
 
-// Helper function to parse Strategic Imperative Story
+// Helper function to parse TL;DR section into array format matching Indeed
+function parseTLDR(content) {
+  if (!content) return [];
+
+  const tldrItems = [];
+  const lines = content.split('\n').filter(line => line.trim());
+
+  // Find the main summary paragraph (first non-emoji, non-header line)
+  let mainSummary = '';
+  let criticalPriority = null;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+
+    // Skip section markers
+    if (trimmed.match(/^---+$/)) continue;
+
+    // Check for critical priority
+    if (trimmed.includes('🔴') && trimmed.includes('**')) {
+      const match = trimmed.match(/🔴\s*\*\*([^:]+?):\*\*:?\s*(.+)/);
+      if (match) {
+        criticalPriority = {
+          title: match[1].trim(),
+          implication: match[2].trim(),
+          priority: 'critical'
+        };
+      }
+      continue;
+    }
+
+    // Check for important priority
+    if (trimmed.includes('🟡') && trimmed.includes('**')) {
+      const match = trimmed.match(/🟡\s*\*\*([^:]+?):\*\*:?\s*(.+)/);
+      if (match) {
+        tldrItems.push({
+          title: match[1].trim(),
+          implication: match[2].trim(),
+          priority: 'important'
+        });
+      }
+      continue;
+    }
+
+    // Check for supporting priority
+    if (trimmed.includes('🟢') && trimmed.includes('**')) {
+      const match = trimmed.match(/🟢\s*\*\*([^:]+?):\*\*:?\s*(.+)/);
+      if (match) {
+        tldrItems.push({
+          title: match[1].trim(),
+          implication: match[2].trim(),
+          priority: 'supporting'
+        });
+      }
+      continue;
+    }
+
+    // If it's a regular paragraph without emojis, it's the main summary
+    if (!trimmed.includes('🔴') && !trimmed.includes('🟡') && !trimmed.includes('🟢') && !mainSummary) {
+      mainSummary = trimmed;
+    }
+  }
+
+  // Create main TLDR item from summary
+  if (mainSummary) {
+    // Extract key statistics for title
+    const stats = [];
+    const statPatterns = [
+      /\$[\d.]+[MBK]/g,  // Money: $2.8M, $954M
+      /[\d.]+%/g,        // Percentages: 35.1%, 12.9%
+      /[\d,]+\s+units?/gi, // Units: 352 units
+    ];
+
+    statPatterns.forEach(pattern => {
+      const matches = mainSummary.match(pattern);
+      if (matches) stats.push(...matches.slice(0, 3));
+    });
+
+    const title = stats.length > 0
+      ? stats.slice(0, 3).join(', ')
+      : mainSummary.substring(0, 60) + '...';
+
+    tldrItems.unshift({
+      title,
+      implication: mainSummary,
+      priority: 'critical'
+    });
+  }
+
+  // Add critical priority if found
+  if (criticalPriority) {
+    tldrItems.push(criticalPriority);
+  }
+
+  return tldrItems;
+}
+
+// Helper function to parse Strategic Imperative Story - matching Indeed format
 function parseStrategicStory(content) {
   if (!content) return null;
 
   const story = {
-    challenge: '',
-    insight: '',
-    imperative: '',
+    challenge: { title: '', content: '' },
+    insight: { title: '', content: '' },
+    imperative: { title: '', content: '' },
   };
 
   // Split content by ### headers
-  const challengeMatch = content.match(/###\s*(?:The\s+)?Challenge.*?\n([\s\S]*?)(?=###|$)/i);
-  const insightMatch = content.match(/###\s*(?:The\s+)?Insight.*?\n([\s\S]*?)(?=###|$)/i);
-  const imperativeMatch = content.match(/###\s*(?:The\s+)?(?:Strategic\s+)?Imperative.*?\n([\s\S]*?)(?=###|$)/i);
+  const challengeMatch = content.match(/###\s*(?:The\s+)?Challenge[^\n]*\n([\s\S]*?)(?=###|$)/i);
+  const insightMatch = content.match(/###\s*(?:The\s+)?Insight[^\n]*\n([\s\S]*?)(?=###|$)/i);
+  const imperativeMatch = content.match(/###\s*(?:The\s+)?(?:Strategic\s+)?Imperative[^\n]*\n([\s\S]*?)(?=###|$)/i);
 
-  if (challengeMatch) story.challenge = challengeMatch[1].trim();
-  if (insightMatch) story.insight = insightMatch[1].trim();
-  if (imperativeMatch) story.imperative = imperativeMatch[1].trim();
+  if (challengeMatch) {
+    const text = challengeMatch[1].trim();
+    story.challenge = {
+      title: text,
+      content: ''
+    };
+  }
+
+  if (insightMatch) {
+    const text = insightMatch[1].trim();
+    story.insight = {
+      title: text,
+      content: ''
+    };
+  }
+
+  if (imperativeMatch) {
+    const text = imperativeMatch[1].trim();
+    story.imperative = {
+      title: text,
+      content: ''
+    };
+  }
 
   return story;
 }
 
-// Helper function to parse findings sections
+// Helper function to parse Full Findings - matching Indeed's card structure
 function parseFindings(content) {
   if (!content) return [];
 
   const findings = [];
+
   // Match ### headers and their content
   const sectionRegex = /###\s+([^\n]+)\n([\s\S]*?)(?=###|$)/g;
   let match;
 
   while ((match = sectionRegex.exec(content)) !== null) {
-    const title = match[1].trim();
+    const sectionTitle = match[1].trim();
     const sectionContent = match[2].trim();
 
-    // Determine priority based on indicators
+    // Determine priority
     let priority = 'supporting';
-    if (sectionContent.includes('🔴') || sectionContent.toLowerCase().includes('critical')) {
+    if (sectionContent.includes('🔴') || sectionTitle.toLowerCase().includes('critical')) {
       priority = 'critical';
-    } else if (sectionContent.includes('🟡') || sectionContent.toLowerCase().includes('important')) {
+    } else if (sectionContent.includes('🟡') || sectionTitle.toLowerCase().includes('important')) {
       priority = 'important';
     }
 
-    // Parse opportunities and risks within sections
-    const opportunities = [];
-    const risks = [];
+    // Parse subsections with ** headers as cards
+    const cards = [];
+    const cardRegex = /\*\*([^\n*]+)\*\*\n([\s\S]*?)(?=\*\*[^\n*]+\*\*|$)/g;
+    let cardMatch;
 
-    // Extract opportunity items (🟢 markers or under Opportunities heading)
-    const oppRegex = /🟢\s*\*\*([^:]+):\*\*\s*([\s\S]*?)(?=🟢|🔴|###|$)/g;
-    let oppMatch;
-    while ((oppMatch = oppRegex.exec(sectionContent)) !== null) {
-      opportunities.push({
-        title: oppMatch[1].trim(),
-        description: oppMatch[2].trim(),
-        priority: oppMatch[2].includes('[Priority: 🔴 Critical]') ? 'critical' :
-                   oppMatch[2].includes('[Priority: 🟡 Important]') ? 'important' : 'supporting',
+    while ((cardMatch = cardRegex.exec(sectionContent)) !== null) {
+      const cardTitle = cardMatch[1].trim();
+      const cardContent = cardMatch[2].trim();
+
+      // Determine card priority
+      let cardPriority = 'supporting';
+      if (cardContent.includes('🔴') || cardContent.toLowerCase().includes('[priority: 🔴 critical]')) {
+        cardPriority = 'critical';
+      } else if (cardContent.includes('🟡') || cardContent.toLowerCase().includes('[priority: 🟡 important]')) {
+        cardPriority = 'important';
+      }
+
+      cards.push({
+        title: cardTitle,
+        content: cardContent,
+        priority: cardPriority
       });
     }
 
-    // Extract risk items (🔴 markers within risk sections)
-    const riskRegex = /🔴\s*\*\*([^:]+):\*\*\s*([\s\S]*?)(?=🟢|🔴|###|$)/g;
-    let riskMatch;
-    while ((riskMatch = riskRegex.exec(sectionContent)) !== null) {
-      risks.push({
-        title: riskMatch[1].trim(),
-        description: riskMatch[2].trim(),
-        priority: riskMatch[2].includes('[Priority: 🔴 Critical]') ? 'critical' :
-                  riskMatch[2].includes('[Priority: 🟡 Important]') ? 'important' : 'supporting',
+    // If no cards found, create one card with all content
+    if (cards.length === 0) {
+      cards.push({
+        title: sectionTitle,
+        content: sectionContent,
+        priority
       });
     }
 
     findings.push({
-      title,
-      content: sectionContent,
-      priority,
-      opportunities,
-      risks,
+      sectionTitle,
+      cards,
+      isExpandable: false
     });
   }
 
@@ -152,38 +236,33 @@ function parseMarkdownFile(filePath, category) {
   const { data: frontmatter, content } = matter(fileContent);
 
   // Extract main sections
-  const tldrSection = extractSection(content, '🎯 TL;DR') || extractSection(content, 'TL;DR');
-  const snapshotSection = extractSection(content, '📊 Situation Snapshot') || extractSection(content, 'Situation Snapshot');
-  const storySection = extractSection(content, '🎭 Strategic Imperative Story') ||
-                       extractSection(content, 'Strategic Imperative Story') ||
-                       extractSection(content, 'Meta Strategic Imperative Story');
-  const findingsSection = extractSection(content, '📈 Full Findings') ||
-                         extractSection(content, 'Full Findings') ||
-                         extractSection(content, 'Cross-Dimensional Strategic Synthesis');
+  const tldrSection = extractSection(content, '🎯 TL;DR', 'TL;DR');
+  const snapshotSection = extractSection(content, '📊 Situation Snapshot', 'Situation Snapshot', 'Executive Summary');
+  const storySection = extractSection(content,
+    '🎭 Strategic Imperative Story',
+    'Strategic Imperative Story',
+    'Meta Strategic Imperative Story'
+  );
+  const findingsSection = extractSection(content,
+    '📈 Full Findings',
+    'Full Findings',
+    'Cross-Dimensional Strategic Synthesis',
+    'Strategic Priorities'
+  );
 
   // Parse sections
   const tldr = parseTLDR(tldrSection);
   const story = parseStrategicStory(storySection);
   const findings = parseFindings(findingsSection);
 
-  // Extract metadata from beginning of file
-  const metaLines = content.split('\n').slice(0, 10);
-  const meta = {};
-  metaLines.forEach(line => {
-    const match = line.match(/\*\*([^:]+):\*\*\s*(.+)/);
-    if (match) {
-      const key = match[1].toLowerCase().replace(/\s+/g, '_');
-      meta[key] = match[2];
-    }
-  });
-
   return {
     meta: {
       category,
       title: category.charAt(0).toUpperCase() + category.slice(1),
-      ...meta,
+      icon: frontmatter.icon || '',
       updatedAt: new Date().toISOString(),
     },
+    intro: content.split('##')[0].trim(),
     tldr,
     situationSnapshot: snapshotSection,
     story,
@@ -195,7 +274,6 @@ function parseMarkdownFile(filePath, category) {
 function ingestContent() {
   const contentDir = path.join(__dirname, '..', 'content');
   const dataDir = path.join(__dirname, '..', 'data');
-  const sourceDir = path.join(__dirname, '..', '..');
 
   // Create directories if they don't exist
   if (!fs.existsSync(contentDir)) {
@@ -205,33 +283,19 @@ function ingestContent() {
     fs.mkdirSync(dataDir, { recursive: true });
   }
 
-  // Copy markdown files from parent directory to content directory
-  console.log('\n📁 Copying markdown files...');
-  Object.keys(categoryMap).forEach(fileName => {
-    const sourcePath = path.join(sourceDir, fileName);
-    const destPath = path.join(contentDir, fileName);
-
-    if (fs.existsSync(sourcePath)) {
-      fs.copyFileSync(sourcePath, destPath);
-      console.log(`✓ Copied ${fileName}`);
-    } else {
-      console.log(`⚠ Warning: ${fileName} not found at ${sourcePath}`);
-    }
-  });
+  console.log('\n📝 Processing markdown files...');
 
   // Process each markdown file
-  console.log('\n📝 Processing markdown files...');
-  const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.md'));
+  Object.keys(categoryMap).forEach(fileName => {
+    const category = categoryMap[fileName];
+    const filePath = path.join(contentDir, fileName);
 
-  files.forEach(file => {
-    const category = categoryMap[file];
-    if (!category) {
-      console.log(`Skipping ${file} - no category mapping`);
+    if (!fs.existsSync(filePath)) {
+      console.log(`⚠ Warning: ${fileName} not found`);
       return;
     }
 
     try {
-      const filePath = path.join(contentDir, file);
       const data = parseMarkdownFile(filePath, category);
 
       // Write JSON output
@@ -239,12 +303,13 @@ function ingestContent() {
       fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
       console.log(`✓ Generated ${category}.json`);
     } catch (error) {
-      console.error(`✗ Error processing ${file}:`, error.message);
+      console.error(`✗ Error processing ${fileName}:`, error.message);
+      console.error(error.stack);
     }
   });
 
   console.log('\n✅ Content ingestion complete!');
-  console.log(`📊 Generated ${files.length} JSON files in ${dataDir}`);
+  console.log(`📊 Check ${dataDir} for generated JSON files`);
 }
 
 // Run the script
