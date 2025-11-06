@@ -97,8 +97,12 @@ export default function HomePage() {
             <div className="flex items-start space-x-4">
               <PriorityBadge level="critical" size="lg" />
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{tldr.priority.title}</h3>
-                <p className="text-gray-700">{tldr.priority.text}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {(tldr.priority as any).title}
+                </h3>
+                <p className="text-gray-700">
+                  {(tldr.priority as any).text}
+                </p>
               </div>
             </div>
           </div>
