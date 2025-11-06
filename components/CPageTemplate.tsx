@@ -84,27 +84,27 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
       </div>
 
       {/* TL;DR Section */}
-      {tldr && (
+      {tldr && tldr.length > 0 && (
         <div className="bg-gradient-to-br from-cava-warm-50 to-white border-2 border-cava-terracotta-300 rounded-2xl p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
             <span>🎯</span>
             <span>TL;DR</span>
           </h2>
-          <div className="prose prose-lg max-w-none">
-            {tldr.summary && renderMarkdown(tldr.summary)}
-          </div>
-
-          {tldr.priority && (
-            <div className="mt-6 bg-white border border-red-300 rounded-lg p-6">
-              <div className="flex items-start space-x-4">
-                <PriorityBadge level={tldr.priority.level} size="lg" />
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{tldr.priority.title}</h3>
-                  <p className="text-gray-700">{tldr.priority.text}</p>
+          <div className="space-y-6">
+            {tldr.map((item: any, idx: number) => (
+              <div key={idx} className="bg-white border border-cava-terracotta-200 rounded-lg p-6">
+                <div className="flex items-start space-x-4">
+                  {item.priority && <PriorityBadge level={item.priority} size="lg" />}
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                    <div className="prose max-w-none">
+                      {renderMarkdown(item.implication)}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       )}
 
