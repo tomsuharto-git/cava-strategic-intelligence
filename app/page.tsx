@@ -1,6 +1,6 @@
 'use client';
 
-import { CNavigation } from '@/components/CNavigation';
+import CNavigation from '@/components/CNavigation';
 import { PriorityCard } from '@/components/PriorityCard';
 import { Building2, Users, MessageSquare, TrendingUp, Target, Globe } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
