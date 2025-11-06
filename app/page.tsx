@@ -75,7 +75,7 @@ export default function HomePage() {
           Comprehensive 6Cs Analysis: Flavor Seekers Strategy
         </p>
         <p className="text-sm text-cava-olive-600">
-          {meta?.analysis_date || 'November 2025'} • {meta?.market || 'United States'}
+          November 2025 • United States
         </p>
       </div>
 
