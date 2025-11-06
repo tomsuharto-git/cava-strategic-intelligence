@@ -120,26 +120,26 @@ export default function HomePage() {
       </div>
 
       {/* Strategic Story */}
-      {story && (story.challenge || story.insight || story.imperative) && (
+      {story && typeof story === 'object' && ((story as any).challenge || (story as any).insight || (story as any).imperative) && (
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Strategic Framework</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {story.challenge && (
+            {(story as any).challenge && (
               <div className="bg-white border border-red-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-sm font-bold text-red-600 uppercase mb-3">The Challenge</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{story.challenge}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{(story as any).challenge}</p>
               </div>
             )}
-            {story.insight && (
+            {(story as any).insight && (
               <div className="bg-white border border-yellow-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-sm font-bold text-yellow-600 uppercase mb-3">The Insight</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{story.insight}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{(story as any).insight}</p>
               </div>
             )}
-            {story.imperative && (
+            {(story as any).imperative && (
               <div className="bg-white border border-cava-olive-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-sm font-bold text-cava-olive-600 uppercase mb-3">The Imperative</h3>
-                <p className="text-gray-700 text-sm leading-relaxed font-medium">{story.imperative}</p>
+                <p className="text-gray-700 text-sm leading-relaxed font-medium">{(story as any).imperative}</p>
               </div>
             )}
           </div>
