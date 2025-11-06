@@ -92,7 +92,7 @@ export default function HomePage() {
           </div>
         )}
 
-        {tldr?.priority && (
+        {tldr?.priority && typeof tldr.priority === 'object' && 'title' in tldr.priority && (
           <div className="bg-white border border-red-200 rounded-lg p-6 mt-6">
             <div className="flex items-start space-x-4">
               <PriorityBadge level="critical" size="lg" />
