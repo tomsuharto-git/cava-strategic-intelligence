@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import CNavigation from '@/components/CNavigation';
+import { Header } from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CNavigation />
-        <main className="min-h-screen">
+        <Header />
+        <main className="min-h-screen pt-16">
           {children}
         </main>
         <footer className="bg-cava-olive-900 text-white py-8 mt-16">

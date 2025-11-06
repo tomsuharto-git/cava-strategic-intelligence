@@ -1,120 +1,81 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Building2, Users, MessageSquare, TrendingUp, Target, Globe, BookOpen } from 'lucide-react';
+import { Building2, Users, MessageSquare, TrendingUp, Target, Globe } from 'lucide-react';
 
-const navItems = [
-  { href: '/', label: 'Overview', icon: BookOpen },
-  { href: '/company', label: 'Company', icon: Building2 },
-  { href: '/consumer', label: 'Consumer', icon: Users },
-  { href: '/communications', label: 'Communications', icon: MessageSquare },
-  { href: '/category', label: 'Category', icon: TrendingUp },
-  { href: '/competition', label: 'Competition', icon: Target },
-  { href: '/culture', label: 'Culture', icon: Globe },
+interface CItem {
+  title: string;
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  description: string;
+}
+
+const cItems: CItem[] = [
+  {
+    title: 'Company',
+    icon: Building2,
+    href: '/company',
+    description: 'Brand positioning, business model, and organizational capabilities',
+  },
+  {
+    title: 'Category',
+    icon: TrendingUp,
+    href: '/category',
+    description: 'Market dynamics, trends, and category drivers',
+  },
+  {
+    title: 'Competition',
+    icon: Target,
+    href: '/competition',
+    description: 'Competitive landscape and positioning analysis',
+  },
+  {
+    title: 'Consumer',
+    icon: Users,
+    href: '/consumer',
+    description: 'Target audience, behaviors, needs, and segmentation',
+  },
+  {
+    title: 'Culture',
+    icon: Globe,
+    href: '/culture',
+    description: 'Cultural context, trends, and societal forces',
+  },
+  {
+    title: 'Communications',
+    icon: MessageSquare,
+    href: '/communications',
+    description: 'Marketing strategy, messaging, and brand communications',
+  },
 ];
 
 export default function CNavigation() {
-  const pathname = usePathname();
-
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-cava-olive-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-cava-olive-500 to-cava-terracotta-500 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
-              <span className="text-white font-bold text-xl">C</span>
-            </div>
-            <div>
-              <div className="text-lg font-bold text-gray-900">CAVA USA</div>
-              <div className="text-xs text-cava-olive-600">Strategic Intelligence</div>
-            </div>
-          </Link>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium
-                    transition-all duration-200
-                    ${isActive
-                      ? 'bg-cava-olive-100 text-cava-olive-800'
-                      : 'text-gray-600 hover:bg-cava-warm-50 hover:text-cava-olive-700'
-                    }
-                  `}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Master Brief Button */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {cItems.map((item) => {
+        const Icon = item.icon;
+        return (
           <Link
-            href="/master-brief"
-            className={`
-              hidden md:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold
-              transition-all duration-200
-              ${pathname === '/master-brief'
-                ? 'bg-cava-terracotta-500 text-white'
-                : 'bg-cava-terracotta-100 text-cava-terracotta-800 hover:bg-cava-terracotta-200'
-              }
-            `}
+            key={item.href}
+            href={item.href}
+            className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            style={{'--hover-border-color': '#556B2F'} as any}
           >
-            <BookOpen className="w-4 h-4" />
-            <span>Master Brief</span>
+            <div className="mb-3">
+              <Icon className="w-10 h-10 text-gray-700 transition-colors" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2 transition-colors">
+              {item.title}
+            </h3>
+            <p className="text-base text-gray-600 leading-relaxed">
+              {item.description}
+            </p>
+            <div className="mt-4 font-medium text-sm group-hover:translate-x-1 transition-transform inline-block" style={{color: '#556B2F'}}>
+              Explore →
+            </div>
           </Link>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="md:hidden pb-3 space-y-1">
-          <div className="flex flex-wrap gap-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    flex items-center space-x-1 px-3 py-1.5 rounded-md text-xs font-medium
-                    ${isActive
-                      ? 'bg-cava-olive-100 text-cava-olive-800'
-                      : 'text-gray-600 hover:bg-cava-warm-50'
-                    }
-                  `}
-                >
-                  <Icon className="w-3 h-3" />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-          </div>
-          <Link
-            href="/master-brief"
-            className={`
-              flex items-center justify-center space-x-2 px-3 py-1.5 rounded-md text-xs font-semibold w-full
-              ${pathname === '/master-brief'
-                ? 'bg-cava-terracotta-500 text-white'
-                : 'bg-cava-terracotta-100 text-cava-terracotta-800'
-              }
-            `}
-          >
-            <BookOpen className="w-3 h-3" />
-            <span>Master Brief</span>
-          </Link>
-        </div>
-      </div>
-    </nav>
+        );
+      })}
+    </div>
   );
 }
