@@ -1,4 +1,5 @@
 import React from 'react';
+import { PriorityCard } from './PriorityCard';
 import PriorityBadge from './PriorityBadge';
 import StrategicStory from './StrategicStory';
 import ExpandableSection from './ExpandableSection';
@@ -85,27 +86,28 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
 
       {/* TL;DR Section */}
       {tldr && tldr.length > 0 && (
-        <div className="bg-gradient-to-br from-cava-warm-50 to-white border-2 border-cava-terracotta-300 rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
-            <span>🎯</span>
-            <span>TL;DR</span>
-          </h2>
-          <div className="space-y-6">
+        <section className="mb-12">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">TL;DR</h2>
+            <p className="text-lg text-gray-600">
+              Key findings at a glance—scannable insights with priority indicators
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-1 gap-6">
             {tldr.map((item: any, idx: number) => (
-              <div key={idx} className="bg-white border border-cava-terracotta-200 rounded-lg p-6">
-                <div className="flex items-start space-x-4">
-                  {item.priority && <PriorityBadge level={item.priority} size="lg" />}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <div className="prose max-w-none">
-                      {renderMarkdown(item.implication)}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <PriorityCard
+                key={idx}
+                priority={item.priority as 'critical' | 'important' | 'supporting'}
+                title={item.title}
+                description={item.implication}
+                source={{ text: 'Source', url: '' }}
+                variant="bulleted"
+                implication={item.implication}
+              />
             ))}
           </div>
-        </div>
+        </section>
       )}
 
       {/* Situation Snapshot */}

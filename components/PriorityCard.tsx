@@ -12,6 +12,8 @@ interface PriorityCardProps {
     url: string;
   };
   category?: string;
+  variant?: 'default' | 'compact' | 'bulleted';
+  implication?: string;
 }
 
 const priorityConfig = {
@@ -41,8 +43,49 @@ export function PriorityCard({
   description,
   source,
   category,
+  variant = 'default',
+  implication,
 }: PriorityCardProps) {
   const config = priorityConfig[priority];
+  const isCompact = variant === 'compact';
+  const isBulleted = variant === 'bulleted';
+
+  // Parse description into bullet points if bulleted variant
+  const bullets = isBulleted
+    ? (() => {
+        // First, try to split by emoji indicators
+        const emojiPattern = /(🔴|🟡|🟢)/;
+        if (emojiPattern.test(description)) {
+          // Split by emojis and filter out empty strings
+          return description
+            .split(emojiPattern)
+            .filter(s => s.trim() && !emojiPattern.test(s))
+            .map(s => {
+              let text = s.trim();
+              // Ensure proper punctuation
+              if (!text.endsWith('.') && !text.endsWith('!') && !text.endsWith('?')) {
+                text += '.';
+              }
+              return text;
+            });
+        }
+        // Fallback: split by periods if no emojis found
+        return description.split('. ').filter(s => s.trim()).map(s => {
+          let text = s.trim();
+          if (!text.endsWith('.')) {
+            text += '.';
+          }
+          return text;
+        });
+      })()
+    : [];
+
+  // Helper function to process markdown in text
+  const processMarkdown = (text: string) => {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\[Source:.*?\]/g, '');
+  };
 
   return (
     <motion.div
@@ -55,36 +98,78 @@ export function PriorityCard({
         y: -8,
         transition: { duration: 0.2 }
       }}
-      className="bg-white rounded-xl border-2 hover:shadow-2xl transition-shadow duration-300 p-6"
+      className={`
+        bg-white rounded-xl border-2
+        hover:shadow-2xl
+        transition-shadow duration-300
+        ${isCompact ? 'p-4' : 'p-6'}
+      `}
       style={{
         borderLeft: `4px solid ${config.borderColor}`,
         backgroundColor: config.bgColor
       }}
     >
-      <div className="flex items-center justify-between mb-3">
-        {category && (
-          <span
-            className="text-sm font-bold uppercase tracking-wide px-3 py-1.5 rounded"
-            style={{
-              color: config.borderColor,
-              backgroundColor: config.bgColor
-            }}
-          >
-            {category}
+      {/* Only show badge section if not bulleted variant */}
+      {!isBulleted && (
+        <div className="flex items-center justify-between mb-3">
+          {category && (
+            <span
+              className="text-sm font-bold uppercase tracking-wide px-3 py-1.5 rounded"
+              style={{
+                color: config.borderColor,
+                backgroundColor: config.bgColor
+              }}
+            >
+              {category}
+            </span>
+          )}
+          <span className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded ${config.badgeColor}`}>
+            {config.badge}
           </span>
-        )}
-        <span className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded ${config.badgeColor}`}>
-          {config.badge}
-        </span>
-      </div>
+        </div>
+      )}
 
-      <h3 className="font-semibold text-gray-900 leading-tight text-xl mb-3">
-        {title}
-      </h3>
+      {!isBulleted && (
+        <h3 className={`font-semibold text-gray-900 leading-tight ${isCompact ? 'text-lg mb-2' : 'text-xl mb-3'}`}>
+          {title}
+        </h3>
+      )}
 
-      <div className="text-gray-600 leading-relaxed text-base prose prose-lg max-w-none">
-        <p>{description}</p>
-      </div>
+      {isBulleted ? (
+        <ul className="space-y-2">
+          {bullets.map((bullet, index) => (
+            <li key={index} className="text-gray-700 leading-relaxed text-lg flex">
+              <span className="mr-2">•</span>
+              <span dangerouslySetInnerHTML={{ __html: processMarkdown(bullet) }} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div
+          className={`text-gray-600 leading-relaxed ${isCompact ? 'text-sm' : 'text-base'} prose prose-lg max-w-none`}
+          dangerouslySetInnerHTML={{
+            __html: description
+              .replace(/\n\n/g, '</p><p>')
+              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+              .replace(/^\*\*(.+?)\*\*$/gm, '<strong>$1</strong>')
+              .replace(/\[Source:.*?\]/g, '')
+          }}
+        />
+      )}
+
+      {/* Implication Badge */}
+      {implication && (
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <div className="flex items-start gap-3">
+            <span className="text-xs font-bold uppercase tracking-wide px-2.5 py-1.5 rounded bg-cava-olive-100 text-cava-olive-700 shrink-0">
+              Implication
+            </span>
+            <p className="text-gray-700 leading-relaxed text-base font-medium">
+              {implication}
+            </p>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
