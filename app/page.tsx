@@ -100,7 +100,7 @@ export default function Home() {
           </h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-gray-700 leading-relaxed">
-              CAVA stands at a once-in-decade cultural and category convergence: Mediterranean fast-casual ($14.2B market, 10.8% CAGR) has no national competitor, Gen Z's $2T wellness revolution prioritizes functional nutrition over restrictive diets, and ethnic cuisine mainstreaming validates bold flavors. The company's operational excellence—<strong>352 units generating $954M revenue (+35.1%)</strong>, <strong>18.1% comps</strong>, <strong>12.9% traffic growth</strong>, <strong>25.6% margins</strong>—proves product-market fit. But <strong>67% awareness in mature markets versus competitors' 90%</strong>, and only 40% in new geographies, creates growth bottleneck requiring aggressive brand-building.
+              CAVA stands at a once-in-decade cultural and category convergence: Mediterranean fast-casual ($14.2B market, 10.8% CAGR) has no national competitor, Gen Z's $2T wellness revolution prioritizes functional nutrition over restrictive diets, and ethnic cuisine mainstreaming validates bold flavors. The company's operational excellence—<strong>415 units generating $1.2B+ revenue (+20.0%)</strong>, <strong>1.9% comps</strong>, <strong>flat traffic (vs. -3.3% industry)</strong>, <strong>24.6% margins</strong>—proves resilient product-market fit despite macroeconomic headwinds. Critically, <strong>2025 new units exceed $3M AUV</strong> with 100%+ productivity, demonstrating national scalability. But <strong>67% awareness in mature markets versus competitors' 90%</strong>, and only 40% in new geographies, creates growth bottleneck requiring aggressive brand-building.
             </p>
             <div ref={statsRef} className="grid md:grid-cols-3 gap-6 my-8">
               <motion.div
@@ -113,12 +113,12 @@ export default function Home() {
                 <div className="text-4xl font-bold mb-2" style={{color: '#556B2F'}}>
                   {isStatsInView && (
                     <>
-                      <CountUp start={0} end={352} duration={2} />
+                      <CountUp start={0} end={415} duration={2} />
                     </>
                   )}
                 </div>
                 <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                  Restaurant Units
+                  Restaurant Units (Q3 2025)
                 </div>
                 <p className="text-sm text-gray-600 mt-2">
                   Growing to 1,000+ by 2032 in Mediterranean category leadership play
@@ -133,14 +133,14 @@ export default function Home() {
               >
                 <div className="text-4xl font-bold mb-2" style={{color: '#CD5C5C'}}>
                   {isStatsInView && (
-                    <CountUp start={0} end={25.6} decimals={1} duration={2} suffix="%" />
+                    <CountUp start={0} end={24.6} decimals={1} duration={2} suffix="%" />
                   )}
                 </div>
                 <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
                   Restaurant-Level Margins
                 </div>
                 <p className="text-sm text-gray-600 mt-2">
-                  Best-in-class unit economics with $2.8M AUV
+                  Best-in-class unit economics with $2.9M AUV ($3M+ for 2025 cohort)
                 </p>
               </motion.div>
               <motion.div
@@ -153,15 +153,15 @@ export default function Home() {
                 <div className="text-4xl font-bold mb-2" style={{color: '#2F4F2F'}}>
                   {isStatsInView && (
                     <>
-                      <CountUp start={0} end={12.9} decimals={1} duration={2} suffix="%" />
+                      <CountUp start={0} end={1.9} decimals={1} duration={2} suffix="%" />
                     </>
                   )}
                 </div>
                 <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
-                  Traffic Growth Q3 2024
+                  Same-Store Sales Q3 2025
                 </div>
                 <p className="text-sm text-gray-600 mt-2">
-                  Exceptional performance while industry declined 3.3%
+                  Market share gain: Flat traffic vs. industry decline of 3.3%
                 </p>
               </motion.div>
             </div>
