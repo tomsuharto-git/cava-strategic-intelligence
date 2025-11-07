@@ -137,7 +137,7 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
       )}
 
       {/* Full Findings */}
-      {findings && findings.length > 0 && (
+      {((findings && findings.length > 0) || situationSnapshot) && (
         <section className="mb-16">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Full Findings</h2>
@@ -145,17 +145,20 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
               Comprehensive analysis and detailed research—expand sections for depth
             </p>
           </div>
-          <div className="space-y-6">
-            {findings.map((finding: any, idx: number) => (
-              <ExpandableSection
-                key={idx}
-                title={finding.title}
-                priority={finding.priority}
-                defaultExpanded={idx < 2}
-              >
-                <div className="prose max-w-none">
-                  {renderMarkdown(finding.content)}
-                </div>
+
+          {/* Structured findings (if available) */}
+          {findings && findings.length > 0 && (
+            <div className="space-y-6">
+              {findings.map((finding: any, idx: number) => (
+                <ExpandableSection
+                  key={idx}
+                  title={finding.title}
+                  priority={finding.priority}
+                  defaultExpanded={idx < 2}
+                >
+                  <div className="prose max-w-none">
+                    {renderMarkdown(finding.content)}
+                  </div>
 
                 {/* Opportunities */}
                 {finding.opportunities && finding.opportunities.length > 0 && (
@@ -202,7 +205,17 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
                 )}
               </ExpandableSection>
             ))}
-          </div>
+            </div>
+          )}
+
+          {/* Fallback: Show Situation Snapshot if no structured findings */}
+          {(!findings || findings.length === 0) && situationSnapshot && (
+            <div className="bg-white border border-gray-200 rounded-xl p-8">
+              <div className="prose max-w-none">
+                {renderMarkdown(situationSnapshot)}
+              </div>
+            </div>
+          )}
         </section>
       )}
       </div>
