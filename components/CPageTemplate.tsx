@@ -53,36 +53,40 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Page Header */}
-      <div className="mb-12">
-        <div className="flex items-center space-x-4 mb-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-cava-olive-500 to-cava-terracotta-500 rounded-xl flex items-center justify-center">
-            <Icon className="w-8 h-8 text-white" />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900">{title}</h1>
-            {meta?.focus && (
-              <p className="text-lg text-gray-600 mt-1">{meta.focus}</p>
-            )}
+    <>
+      {/* Hero Section */}
+      <section className="py-16 mb-8" style={{backgroundColor: '#f9d000'}}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-4">
+            <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{backgroundColor: '#00020d'}}>
+              <Icon className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold" style={{color: '#00020d'}}>{title}</h1>
+              {meta?.focus && (
+                <p className="text-lg mt-1" style={{color: '#00020d'}}>{meta.focus}</p>
+              )}
+            </div>
           </div>
         </div>
+      </section>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Metadata Badges */}
         {meta && (
-          <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+          <div className="flex flex-wrap gap-3 text-sm mb-12">
             {meta.analysis_date && (
-              <span className="bg-cava-warm-100 px-3 py-1 rounded-full">
+              <span className="px-3 py-1 rounded-full" style={{backgroundColor: '#fff8e8', color: '#00020d'}}>
                 📅 {meta.analysis_date}
               </span>
             )}
             {meta.target_audience_context && (
-              <span className="bg-cava-olive-100 px-3 py-1 rounded-full">
+              <span className="px-3 py-1 rounded-full" style={{backgroundColor: '#fff8e8', color: '#00020d'}}>
                 🎯 {meta.target_audience_context}
               </span>
             )}
           </div>
         )}
-      </div>
 
       {/* TL;DR Section */}
       {tldr && tldr.length > 0 && (
@@ -205,6 +209,7 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

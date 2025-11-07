@@ -79,13 +79,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="text-white py-24" style={{background: 'linear-gradient(135deg, #00020d 0%, #f9d000 100%)'}}>
+      <section className="py-24" style={{backgroundColor: '#f9d000'}}>
         <div className="section-container">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight" style={{color: '#00020d'}}>
               CAVA USA Get Smart
             </h1>
-            <p className="text-xl md:text-2xl leading-relaxed" style={{color: 'rgba(255,255,255,0.9)'}}>
+            <p className="text-xl md:text-2xl leading-relaxed" style={{color: '#00020d'}}>
               A comprehensive 6Cs analysis revealing CAVA's path to Mediterranean fast-casual dominance through Flavor Seeker strategy, operational excellence, and strategic brand-building in America's evolving dining landscape.
             </p>
           </div>
