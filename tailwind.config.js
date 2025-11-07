@@ -9,42 +9,41 @@ module.exports = {
     extend: {
       colors: {
         cava: {
-          // Mediterranean-inspired warm tones
+          // Official CAVA Brand Colors
+          'liquid-gold': '#f9d000',
+          'mid-yellow': '#f4de60',
+          'cream': '#fff8e8',
+          'light-yellow': '#ffeab6',
+          'olive': '#959502',
+          'black': '#00020d',
+          'terracotta': '#CD5C5C',
+
+          // Yellow scale (based on official primary colors)
+          yellow: {
+            50: '#fffef5',
+            100: '#fffce8',
+            200: '#fff8e8',  // CAVA Cream
+            300: '#ffeab6',  // CAVA Light Yellow
+            400: '#f4de60',  // CAVA Mid Yellow
+            500: '#f9d000',  // CAVA Liquid Gold
+            600: '#d4b000',
+            700: '#a88f00',
+            800: '#7d6a00',
+            900: '#524500',
+          },
+
+          // Olive scale (based on official CAVA Olive)
           olive: {
-            50: '#f6f7f1',
-            100: '#eceee0',
-            200: '#d8dcc1',
-            300: '#bec49a',
-            400: '#a5ad75',
-            500: '#8a9559',
-            600: '#6d7846',
-            700: '#565d39',
-            800: '#474d31',
-            900: '#3d412b',
-          },
-          terracotta: {
-            50: '#fdf5f3',
-            100: '#fbe9e4',
-            200: '#f7d4ca',
-            300: '#f1b5a4',
-            400: '#e88c6f',
-            500: '#dc6842',
-            600: '#c94f2e',
-            700: '#a83f25',
-            800: '#8b3623',
-            900: '#743122',
-          },
-          warm: {
-            50: '#fdfbf9',
-            100: '#faf6f1',
-            200: '#f5ede1',
-            300: '#eddcc8',
-            400: '#e3c7a5',
-            500: '#d5a876',
-            600: '#c88d54',
-            700: '#b87541',
-            800: '#965f37',
-            900: '#7a4f30',
+            50: '#fafaf2',
+            100: '#f5f5e0',
+            200: '#ebebc2',
+            300: '#d9d998',
+            400: '#c5c56e',
+            500: '#959502',  // CAVA Olive
+            600: '#7a7a02',
+            700: '#5f5f01',
+            800: '#444401',
+            900: '#2a2a01',
           },
         },
       },

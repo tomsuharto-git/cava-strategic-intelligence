@@ -6,10 +6,14 @@
   --foreground-rgb: 30, 30, 30;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 250, 246, 241;
-  --cava-olive: #556B2F;
-  --cava-olive-dark: #2F4F2F;
+  /* Official CAVA Brand Colors */
+  --cava-liquid-gold: #f9d000;
+  --cava-mid-yellow: #f4de60;
+  --cava-cream: #fff8e8;
+  --cava-light-yellow: #ffeab6;
+  --cava-olive: #959502;
+  --cava-black: #00020d;
   --cava-terracotta: #CD5C5C;
-  --cava-warm: #F5F5DC;
 }
 
 body {
@@ -64,7 +68,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cava-olive-dark);
+  background: var(--cava-black);
 }
 
 /* Priority badges */
@@ -147,7 +151,7 @@ p {
 
 .prose strong {
   font-weight: 600;
-  color: var(--cava-olive-dark);
+  color: var(--cava-black);
 }
 
 .prose a {
@@ -159,11 +163,15 @@ p {
   color: var(--cava-terracotta);
 }
 
-/* Gradient backgrounds */
+/* Gradient backgrounds - Official CAVA Brand Pairings */
 .bg-cava-gradient {
-  background: linear-gradient(135deg, var(--cava-olive-dark) 0%, var(--cava-olive) 100%);
+  background: linear-gradient(135deg, var(--cava-black) 0%, var(--cava-olive) 100%);
 }
 
 .bg-cava-warm-gradient {
-  background: linear-gradient(135deg, var(--cava-warm) 0%, rgba(245, 245, 220, 0.5) 100%);
+  background: linear-gradient(135deg, var(--cava-cream) 0%, var(--cava-light-yellow) 100%);
+}
+
+.bg-cava-yellow-gradient {
+  background: linear-gradient(135deg, var(--cava-liquid-gold) 0%, var(--cava-mid-yellow) 100%);
 }
