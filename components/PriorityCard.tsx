@@ -29,7 +29,7 @@ const priorityConfig = {
   },
   supporting: {
     badge: '🟢 Supporting',
-    borderColor: '#556B2F',
+    borderColor: '#f9d000',
     badgeColor: 'text-green-700 bg-green-100',
   },
 };

@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="text-white py-24" style={{background: 'linear-gradient(135deg, #2F4F2F 0%, #556B2F 100%)'}}>
+      <section className="text-white py-24" style={{background: 'linear-gradient(135deg, #00020d 0%, #f9d000 100%)'}}>
         <div className="section-container">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -108,9 +108,9 @@ export default function Home() {
                 animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0 }}
                 className="rounded-lg p-6 border-2"
-                style={{backgroundColor: 'rgba(85, 107, 47, 0.1)', borderColor: '#556B2F'}}
+                style={{backgroundColor: 'rgba(249, 208, 0, 0.1)', borderColor: '#f9d000'}}
               >
-                <div className="text-4xl font-bold mb-2" style={{color: '#556B2F'}}>
+                <div className="text-4xl font-bold mb-2" style={{color: '#f9d000'}}>
                   {isStatsInView && (
                     <>
                       <CountUp start={0} end={415} duration={2} />
@@ -148,9 +148,9 @@ export default function Home() {
                 animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="rounded-lg p-6 border-2"
-                style={{backgroundColor: 'rgba(47, 79, 47, 0.1)', borderColor: '#2F4F2F'}}
+                style={{backgroundColor: 'rgba(249, 208, 0, 0.1)', borderColor: '#f9d000'}}
               >
-                <div className="text-4xl font-bold mb-2" style={{color: '#2F4F2F'}}>
+                <div className="text-4xl font-bold mb-2" style={{color: '#f9d000'}}>
                   {isStatsInView && (
                     <>
                       <CountUp start={0} end={1.9} decimals={1} duration={2} suffix="%" />
@@ -197,7 +197,7 @@ export default function Home() {
                 whileHover={{ scale: 1.03, y: -4 }}
                 transition={{ duration: 0.2 }}
                 className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-xl transition-all duration-300"
-                style={{'--hover-border': '#556B2F'} as any}
+                style={{'--hover-border': '#f9d000'} as any}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Icon className="w-8 h-8 text-gray-700 transition-colors" />
@@ -208,7 +208,7 @@ export default function Home() {
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {insight.text}
                 </p>
-                <div className="mt-4 font-medium text-sm group-hover:translate-x-1 transition-transform inline-block" style={{color: '#556B2F'}}>
+                <div className="mt-4 font-medium text-sm group-hover:translate-x-1 transition-transform inline-block" style={{color: '#f9d000'}}>
                   Read more →
                 </div>
               </motion.a>
@@ -236,14 +236,14 @@ export default function Home() {
                 CAVA achieved rare operational excellence (18.1% comps, 25.6% margins, 12.9% traffic when category declined 3.3%) but faces structural growth constraint: low brand awareness (40-67% vs. 90% competitor baseline) limits new market velocity, Flavor Seekers' promiscuity across 5-7 brands prevents frequency lock-in, and capital-intensive company-owned model demands patient investment before critical mass. Meanwhile, Chipotle's shadow looms—if they deploy 3,600-unit scale toward Mediterranean category, CAVA's first-mover advantage evaporates overnight.
               </p>
             </div>
-            <div className="border-l-4 pl-6" style={{borderColor: '#556B2F'}}>
-              <h3 className="text-xl font-bold mb-3" style={{color: '#556B2F'}}>Insight</h3>
+            <div className="border-l-4 pl-6" style={{borderColor: '#f9d000'}}>
+              <h3 className="text-xl font-bold mb-3" style={{color: '#f9d000'}}>Insight</h3>
               <p className="text-gray-700">
                 Flavor Seekers aren't choosing restaurants—they're choosing identities. Mediterranean dining signals desirable attributes ("I'm health-conscious but not boring, culturally curious, adventurous, sustainably minded") that Chipotle's Mexican, Sweetgreen's salads, and QSR can't deliver simultaneously. Mediterranean cuisine resolves their values-behavior gap: inherently plant-forward, globally respected for health, culturally authentic with regional diversity, and bold-flavored through spices and healthy fats. CAVA's role: make virtue effortless.
               </p>
             </div>
-            <div className="border-l-4 pl-6" style={{borderColor: '#2F4F2F'}}>
-              <h3 className="text-xl font-bold mb-3" style={{color: '#2F4F2F'}}>Imperative</h3>
+            <div className="border-l-4 pl-6" style={{borderColor: '#00020d'}}>
+              <h3 className="text-xl font-bold mb-3" style={{color: '#00020d'}}>Imperative</h3>
               <p className="text-gray-700">
                 Transform CAVA from "fast-casual Mediterranean option" to "Flavor Seekers' identity HQ" where weekly Mediterranean dining becomes badge of adventurous, wellness-optimized, culturally curious self. Accelerate unit growth to 80-100 annually prioritizing college towns, adventure sport markets, and urban cores. Launch "Mediterranean Authority" campaign owning authenticity before Chipotle enters. Gamify loyalty through progression systems converting occasional visits to 2-3x/week frequency. Execute in 18 months or face permanent #2 positioning.
               </p>
@@ -303,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="text-white py-12 mt-16" style={{backgroundColor: '#2F4F2F'}}>
+      <footer className="text-white py-12 mt-16" style={{backgroundColor: '#00020d'}}>
         <div className="section-container">
           <div className="text-center">
             <p className="text-sm" style={{color: 'rgba(255,255,255,0.9)'}}>

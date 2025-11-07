@@ -59,7 +59,7 @@ export default function CNavigation() {
             key={item.href}
             href={item.href}
             className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            style={{'--hover-border-color': '#556B2F'} as any}
+            style={{'--hover-border-color': '#f9d000'} as any}
           >
             <div className="mb-3">
               <Icon className="w-10 h-10 text-gray-700 transition-colors" />
@@ -70,7 +70,7 @@ export default function CNavigation() {
             <p className="text-base text-gray-600 leading-relaxed">
               {item.description}
             </p>
-            <div className="mt-4 font-medium text-sm group-hover:translate-x-1 transition-transform inline-block" style={{color: '#556B2F'}}>
+            <div className="mt-4 font-medium text-sm group-hover:translate-x-1 transition-transform inline-block" style={{color: '#f9d000'}}>
               Explore →
             </div>
           </Link>
