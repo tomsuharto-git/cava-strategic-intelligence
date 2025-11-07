@@ -90,7 +90,7 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
 
       {/* TL;DR Section */}
       {tldr && tldr.length > 0 && (
-        <section className="mb-12">
+        <section className="mb-16">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">TL;DR</h2>
             <p className="text-lg text-gray-600">
@@ -114,41 +114,37 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
         </section>
       )}
 
-      {/* Situation Snapshot */}
-      {situationSnapshot && (
-        <div className="bg-white border border-cava-olive-200 rounded-xl p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
-            <span>📊</span>
-            <span>Situation Snapshot</span>
-          </h2>
-          <div className="prose max-w-none">
-            {renderMarkdown(situationSnapshot)}
-          </div>
-        </div>
-      )}
-
-      {/* Strategic Story */}
+      {/* Strategic Imperative Story */}
       {story && (
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center space-x-2">
-            <span>🎭</span>
-            <span>Strategic Imperative Story</span>
-          </h2>
-          <StrategicStory
-            challenge={story.challenge}
-            insight={story.insight}
-            imperative={story.imperative}
-          />
-        </div>
+        <section className="mb-16">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Strategic Imperative Story
+            </h2>
+            <p className="text-lg text-gray-600">
+              The narrative connecting Challenge → Insight → Strategic Imperative
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <StrategicStory
+              challenge={story.challenge}
+              insight={story.insight}
+              imperative={story.imperative}
+            />
+          </div>
+        </section>
       )}
 
       {/* Full Findings */}
       {findings && findings.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center space-x-2">
-            <span>📈</span>
-            <span>Full Findings</span>
-          </h2>
+        <section className="mb-16">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Full Findings</h2>
+            <p className="text-lg text-gray-600">
+              Comprehensive analysis and detailed research—expand sections for depth
+            </p>
+          </div>
           <div className="space-y-6">
             {findings.map((finding: any, idx: number) => (
               <ExpandableSection
@@ -207,7 +203,7 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
               </ExpandableSection>
             ))}
           </div>
-        </div>
+        </section>
       )}
       </div>
     </>
