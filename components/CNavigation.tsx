@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Building2, Users, MessageSquare, TrendingUp, Target, Globe } from 'lucide-react';
+import { Building2, Users, Megaphone, Package, Swords, Globe } from 'lucide-react';
 
 interface CItem {
   title: string;
@@ -19,13 +19,13 @@ const cItems: CItem[] = [
   },
   {
     title: 'Category',
-    icon: TrendingUp,
+    icon: Package,
     href: '/category',
     description: 'Market dynamics, trends, and category drivers',
   },
   {
     title: 'Competition',
-    icon: Target,
+    icon: Swords,
     href: '/competition',
     description: 'Competitive landscape and positioning analysis',
   },
@@ -43,7 +43,7 @@ const cItems: CItem[] = [
   },
   {
     title: 'Communications',
-    icon: MessageSquare,
+    icon: Megaphone,
     href: '/communications',
     description: 'Marketing strategy, messaging, and brand communications',
   },

@@ -1,16 +1,16 @@
 'use client';
 
-import { Home, Building2, TrendingUp, Target, Users, Globe, MessageSquare } from 'lucide-react';
+import { Home, Building2, Package, Swords, Users, Globe, Megaphone } from 'lucide-react';
 
 export function Header() {
   const navItems = [
     { href: '/', label: 'Overview', icon: Home },
     { href: '/company', label: 'Company', icon: Building2 },
-    { href: '/category', label: 'Category', icon: TrendingUp },
-    { href: '/competition', label: 'Competition', icon: Target },
+    { href: '/category', label: 'Category', icon: Package },
+    { href: '/competition', label: 'Competition', icon: Swords },
     { href: '/consumer', label: 'Consumer', icon: Users },
     { href: '/culture', label: 'Culture', icon: Globe },
-    { href: '/communications', label: 'Communications', icon: MessageSquare },
+    { href: '/communications', label: 'Communications', icon: Megaphone },
   ];
 
   return (

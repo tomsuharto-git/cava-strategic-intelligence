@@ -2,7 +2,7 @@
 
 import CNavigation from '@/components/CNavigation';
 import { PriorityCard } from '@/components/PriorityCard';
-import { Building2, Users, MessageSquare, TrendingUp, Target, Globe } from 'lucide-react';
+import { Building2, Users, Megaphone, Package, Swords, Globe } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import CountUp from 'react-countup';
@@ -48,13 +48,13 @@ export default function Home() {
       title: categoryData.tldr[0]?.title || 'Category',
       text: categoryData.tldr[0]?.implication || '',
       href: '/category',
-      icon: TrendingUp
+      icon: Package
     },
     {
       title: competitionData.tldr[0]?.title || 'Competition',
       text: competitionData.tldr[0]?.implication || '',
       href: '/competition',
-      icon: Target
+      icon: Swords
     },
     {
       title: consumerData.tldr[0]?.title || 'Consumer',
@@ -72,7 +72,7 @@ export default function Home() {
       title: communicationsData.tldr[0]?.title || 'Communications',
       text: communicationsData.tldr[0]?.implication || '',
       href: '/communications',
-      icon: MessageSquare
+      icon: Megaphone
     },
   ];
 
