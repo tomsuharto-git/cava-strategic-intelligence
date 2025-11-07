@@ -20,19 +20,16 @@ const priorityConfig = {
   critical: {
     badge: '🔴 Critical',
     borderColor: '#CD5C5C',
-    bgColor: 'rgba(205, 92, 92, 0.1)',
     badgeColor: 'text-red-700 bg-red-100',
   },
   important: {
     badge: '🟡 Important',
     borderColor: '#F4A460',
-    bgColor: 'rgba(244, 164, 96, 0.1)',
     badgeColor: 'text-amber-700 bg-amber-100',
   },
   supporting: {
     badge: '🟢 Supporting',
     borderColor: '#556B2F',
-    bgColor: 'rgba(85, 107, 47, 0.1)',
     badgeColor: 'text-green-700 bg-green-100',
   },
 };
@@ -105,8 +102,7 @@ export function PriorityCard({
         ${isCompact ? 'p-4' : 'p-6'}
       `}
       style={{
-        borderLeft: `4px solid ${config.borderColor}`,
-        backgroundColor: config.bgColor
+        borderLeft: `4px solid ${config.borderColor}`
       }}
     >
       {/* Only show badge section if not bulleted variant */}
@@ -117,7 +113,7 @@ export function PriorityCard({
               className="text-sm font-bold uppercase tracking-wide px-3 py-1.5 rounded"
               style={{
                 color: config.borderColor,
-                backgroundColor: config.bgColor
+                backgroundColor: `${config.borderColor}15`
               }}
             >
               {category}
