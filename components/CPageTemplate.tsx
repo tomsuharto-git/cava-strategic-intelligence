@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { PriorityCard } from './PriorityCard';
 import PriorityBadge from './PriorityBadge';
 import StrategicStory from './StrategicStory';
@@ -57,6 +58,9 @@ export default function CPageTemplate({ icon: Icon, title, data }: CPageTemplate
       {/* Hero Section */}
       <section className="py-16 mb-8" style={{backgroundColor: '#f9d000'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="text-sm hover:opacity-80 mb-4 inline-block transition-opacity" style={{color: '#00020d'}}>
+            ← Back to Home
+          </Link>
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{backgroundColor: '#00020d'}}>
               <Icon className="w-8 h-8 text-white" />

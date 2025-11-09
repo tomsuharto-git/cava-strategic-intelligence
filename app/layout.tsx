@@ -20,21 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen pt-16">
+        <main className="pt-16">
           {children}
         </main>
-        <footer className="bg-cava-olive-900 text-white py-8 mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <p className="text-cava-olive-200">
-                CAVA USA Strategic Intelligence • November 2025
-              </p>
-              <p className="text-cava-olive-400 text-sm mt-2">
-                Strategic analysis focused on Flavor Seekers segment
-              </p>
-            </div>
-          </div>
-        </footer>
       </body>
     </html>
   );

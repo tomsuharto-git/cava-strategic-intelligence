@@ -256,7 +256,7 @@ export default function Home() {
       <section className="section-container py-16">
         <div className="mb-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-3">
-            Strategic Priorities
+            Strategic Opportunities
           </h2>
           <p className="text-xl text-gray-600">
             Three key opportunities for transforming from regional player to Mediterranean category leader
