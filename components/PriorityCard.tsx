@@ -50,11 +50,18 @@ export function PriorityCard({
   // Parse description into bullet points if bulleted variant
   const bullets = isBulleted
     ? (() => {
+        // First, normalize the text by removing unwanted line breaks and bullet points
+        const normalizedText = description
+          .replace(/\n•\n/g, ' ')  // Remove standalone bullet points with newlines
+          .replace(/\n/g, ' ')      // Replace remaining newlines with spaces
+          .replace(/\s+/g, ' ')     // Collapse multiple spaces into one
+          .trim();
+
         // First, try to split by emoji indicators
         const emojiPattern = /(🔴|🟡|🟢)/;
-        if (emojiPattern.test(description)) {
+        if (emojiPattern.test(normalizedText)) {
           // Split by emojis and filter out empty strings
-          return description
+          return normalizedText
             .split(emojiPattern)
             .filter(s => s.trim() && !emojiPattern.test(s))
             .map(s => {
@@ -67,7 +74,7 @@ export function PriorityCard({
             });
         }
         // Fallback: split by periods if no emojis found
-        return description.split('. ').filter(s => s.trim()).map(s => {
+        return normalizedText.split('. ').filter(s => s.trim()).map(s => {
           let text = s.trim();
           if (!text.endsWith('.')) {
             text += '.';
