@@ -15,5 +15,49 @@
   ],
   "situationSnapshot": "The competitive set fragments into three tiers with vastly different strategic implications. Tier 1 giants—Chipotle ($88B market cap, 3,600 locations, $2.79B Q3 revenue) and Sweetgreen (246 locations, $676.8M annual revenue)—dominate fast-casual mindshare and wallet-share. Chipotle's 33M loyalty members dwarf CAVA's 4.8M, while their historical 27.2% restaurant-level margins represent operational mastery CAVA aspires to. However, Q3 2025 reveals competitive cracks: Chipotle delivered only +0.3% comps with declining dinner traffic, citing 25-35 age group down 15% and geographic weakness (Northeast, LA). Sweetgreen cratered at -9.5% comps with 13.1% margins (versus CAVA's 24.6%), prompting strategic retreat—selling Infinite Kitchen technology to Wonder and slowing unit growth to 15-20 annually (from 37 in 2024). [Source: https://www.entrepreneur.com/finance/chipotle-vs-cava-growth-or-value-which-stock-wins-for/484416]\n\nTier 2 consists of adjacent fast-casual players encroaching Mediterranean territory: Panera (2,100+ locations) launched Mediterranean Chicken Greens and Grains bowl in April 2024's massive menu transformation, testing consumer appetite for Mediterranean flavors within their trusted brand context. [Source: https://foodinstitute.com/focus/panera-menu-makeover-2024/] Shake Shack, Dig Inn, and &pizza represent format threats (customization, premium ingredients, urban positioning) but lack cuisine-specific differentiation. All face identical macro pressures—low-income consumer pullback, student loan resumptions, wage stagnation—but lack CAVA's Mediterranean differentiation to justify premiums.\n\nTier 3 direct Mediterranean competitors are structurally weak: Zoës Kitchen was acquired by CAVA in 2018 and fully converted/closed by 2023. Roti Mediterranean filed bankruptcy in 2024 seeking buyers. Garbanzo (30+ units), Luna Grill (50+ units), Naf Naf, and The Great Greek remain regional franchises with inconsistent quality and limited growth capital. [Source: https://www.latterly.org/cava-competitors/] CAVA's 415 units and $14.2B market cap position them as undisputed Mediterranean category leader—the question isn't direct competition but when indirect giants (Chipotle, Panera) launch Mediterranean plays.\n\nPricing dynamics reveal strategic positioning: CAVA's $12-15 meals align with Chipotle ($10-14) and Sweetgreen ($13-16), occupying premium fast-casual tier above QSR ($8-10) but below casual dining ($18-22). Value-conscious consumers face pressure—McDonald's $5 Meal Deal, Taco Bell value menus—creating trade-down risk if fast-casual can't justify premiums. [Source: https://www.qsrmagazine.com/growth/fast-casual/2025-fast-food-primer-where-value-took-the-restaurant-consumer/] Nearly 40% of consumers reduced dining-out frequency in 2024, forcing premium concepts to prove worth every visit.\n\nMomentum analysis shows competitive divergence in Q3 2025: CAVA maintained flat traffic (versus -3.3% industry decline) with +1.9% comps and 24.6% margins, demonstrating Mediterranean positioning resilience. Chipotle struggled to +0.3% comps with dinner weakness. Sweetgreen collapsed at -9.5% comps, prompting strategic retrenchment. The macro environment (25-35 demographic pressure, geographic softness in Northeast/LA, low-income pullback) affects all players, but CAVA's Mediterranean differentiation and operational excellence ($3M+ AUV for 2025 cohort) provide competitive insulation. Flavor Seekers' promiscuous cross-shopping behavior (visiting 5-7 brands monthly) means every visit is contested; CAVA competes for \"lunch today\" against all fast-casual, not just Mediterranean subset. Current competitive struggles create strategic window for CAVA to accelerate brand-building while Chipotle and Sweetgreen are distracted.\n\n---",
   "story": null,
-  "findings": []
+  "findings": [
+    {
+      "sectionTitle": "Competitive Landscape Structure",
+      "cards": [
+        {
+          "title": "Tier 1: Giants Showing Cracks",
+          "content": "The competitive set fragments into three tiers with vastly different strategic implications. Tier 1 giants—Chipotle ($88B market cap, 3,600 locations, $2.79B Q3 revenue) and Sweetgreen (246 locations, $676.8M annual revenue)—dominate fast-casual mindshare and wallet-share. Chipotle's 33M loyalty members dwarf CAVA's 4.8M, while their historical 27.2% restaurant-level margins represent operational mastery CAVA aspires to. However, Q3 2025 reveals competitive cracks: Chipotle delivered only +0.3% comps with declining dinner traffic, citing 25-35 age group down 15% and geographic weakness (Northeast, LA). Sweetgreen cratered at -9.5% comps with 13.1% margins (versus CAVA's 24.6%), prompting strategic retreat—selling Infinite Kitchen technology to Wonder and slowing unit growth to 15-20 annually (from 37 in 2024). All three cite identical macro pressures, but CAVA's Mediterranean positioning demonstrates superior resilience.\n\n[Source: https://www.entrepreneur.com/finance/chipotle-vs-cava-growth-or-value-which-stock-wins-for/484416]",
+          "priority": "critical"
+        },
+        {
+          "title": "Tier 2 & 3: Adjacent Threats & Weak Direct Competition",
+          "content": "Tier 2 consists of adjacent fast-casual players encroaching Mediterranean territory: Panera (2,100+ locations) launched Mediterranean Chicken Greens and Grains bowl in April 2024's massive menu transformation, testing consumer appetite for Mediterranean flavors within their trusted brand context. Shake Shack, Dig Inn, and &pizza represent format threats (customization, premium ingredients, urban positioning) but lack cuisine-specific differentiation. All face identical macro pressures but lack CAVA's Mediterranean differentiation to justify premiums. Tier 3 direct Mediterranean competitors are structurally weak: Zoës Kitchen was acquired by CAVA in 2018 and fully converted/closed by 2023. Roti Mediterranean filed bankruptcy in 2024 seeking buyers. Garbanzo (30+ units), Luna Grill (50+ units), Naf Naf, and The Great Greek remain regional franchises with inconsistent quality and limited growth capital. CAVA's 415 units and $14.2B market cap position them as undisputed Mediterranean category leader.\n\n[Source: https://foodinstitute.com/focus/panera-menu-makeover-2024/]\n[Source: https://www.latterly.org/cava-competitors/]",
+          "priority": "important"
+        }
+      ],
+      "isExpandable": true
+    },
+    {
+      "sectionTitle": "Competitive Positioning & Dynamics",
+      "cards": [
+        {
+          "title": "Pricing Strategy & Premium Positioning",
+          "content": "Pricing dynamics reveal strategic positioning: CAVA's $12-15 meals align with Chipotle ($10-14) and Sweetgreen ($13-16), occupying premium fast-casual tier above QSR ($8-10) but below casual dining ($18-22). Value-conscious consumers face pressure—McDonald's $5 Meal Deal, Taco Bell value menus—creating trade-down risk if fast-casual can't justify premiums. Nearly 40% of consumers reduced dining-out frequency in 2024, forcing premium concepts to prove worth every visit. The strategic challenge: maintain quality and experience standards while managing cost pressures (labor, tariffs) without pricing into casual dining territory where different competitive dynamics apply.\n\n[Source: https://www.qsrmagazine.com/growth/fast-casual/2025-fast-food-primer-where-value-took-the-restaurant-consumer/]",
+          "priority": "supporting"
+        },
+        {
+          "title": "Momentum Analysis: CAVA's Strategic Window",
+          "content": "Momentum analysis shows competitive divergence in Q3 2025: CAVA maintained flat traffic (versus -3.3% industry decline) with +1.9% comps and 24.6% margins, demonstrating Mediterranean positioning resilience. Chipotle struggled to +0.3% comps with dinner weakness. Sweetgreen collapsed at -9.5% comps, prompting strategic retrenchment. The macro environment (25-35 demographic pressure, geographic softness in Northeast/LA, low-income pullback) affects all players, but CAVA's Mediterranean differentiation and operational excellence ($3M+ AUV for 2025 cohort) provide competitive insulation. Flavor Seekers' promiscuous cross-shopping behavior (visiting 5-7 brands monthly) means every visit is contested; CAVA competes for \"lunch today\" against all fast-casual, not just Mediterranean subset. Current competitive struggles create strategic window for CAVA to accelerate brand-building while Chipotle and Sweetgreen are distracted by their own operational challenges.\n\n[Source: Analysis of Q3 2025 earnings]",
+          "priority": "critical"
+        }
+      ],
+      "isExpandable": false
+    },
+    {
+      "sectionTitle": "Strategic Threats & Opportunities",
+      "cards": [
+        {
+          "title": "The Chipotle Question: When, Not If",
+          "content": "The existential competitive threat remains Chipotle's potential Mediterranean entry. With 3,600 units, operational mastery, and brand recognition (90%+ awareness), Chipotle could test Mediterranean LTOs or launch a sub-brand. Their current struggles (+0.3% comps, declining dinner traffic) buy CAVA time, but when macro environment improves, Chipotle's scale and resources could rapidly validate Mediterranean category and attract investment to weaker competitors or new entrants. The question is \"when, not if\" for Mediterranean category collision. CAVA must establish category ownership (\"Mediterranean = CAVA\" mental availability) before competitive intensity returns. Strategic imperative: accelerate unit growth (80-100 annually vs. current 68-70) and brand-building (closing awareness gap from 67% mature/40% new to 90% baseline) during this 18-24 month window while giants are distracted.\n\n[Source: Competitive analysis synthesis]",
+          "priority": "critical"
+        }
+      ],
+      "isExpandable": false
+    }
+  ]
 }

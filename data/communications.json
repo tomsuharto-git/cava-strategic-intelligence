@@ -15,5 +15,49 @@
   ],
   "situationSnapshot": "CAVA's communications strategy is \"primarily digital,\" skewing heavily toward social media (Instagram, TikTok, Facebook) with recent streaming ad expansion (YouTube TV, Roku, Hulu) to diversify beyond platform dependence. The brand partnered with media agency Levelwing in January 2024 and hired an in-house senior manager for media buying, signaling professionalization of previously organic-heavy approach. Marketing spend increased 15% in 2024 to support 1,000-unit growth ambition and close the awareness gap (67% mature markets, 40% new markets vs. 90% competitor baseline). [Source: https://digiday.com/marketing/why-cavas-bid-for-brand-awareness-means-prioritizing-streaming-ads/]\n\nBrand voice walks a tightrope: confident and flavor-forward in product messaging (\"Feels good to be fiery,\" \"spice up my life,\" \"broc my world\"), but self-deprecating and friend-like on social. The strategy embraces Gen Z's \"unhinged marketing\" preferences—CAVA leans into customers calling bowls \"slop,\" posts memes, and partners with comedic creators like DJ Mandy and Nolita Dirtbag (Alex Hartman). Chief Experience Officer Andy Rebhun describes the approach as \"making guests feel seen\" and \"experiencing life with them\" rather than \"talking at guests.\" [Source: https://www.marketingbrew.com/stories/2024/04/22/how-self-deprecation-is-fueling-cava-s-growth]\n\nRecent campaigns demonstrate social media mastery. The grilled steak launch generated millions of social impressions through \"powerful\" social activation. Instagram dating series \"Bowlmates\" (hosted by comedian Daniela Mora) earned 300K+ views on first two episodes with zero paid media. Influencer Cody Premer's CAVA post hit 3.7M likes—CEO Brett Schulman called it \"part of the cultural conversation\" showing \"how much people love our food.\" [Source: https://www.marketingbrew.com/stories/2025/10/24/cava-bowlmates-instagram-social-dating-series]\n\nDigital infrastructure supports the messaging: redesigned app launched with \"walk-the-line\" visual UX mirroring in-restaurant customization, built on React/Elixir for concurrent ordering at scale. App features include order-ahead, favorites heart system, large-format family orders, and future group ordering capabilities. The experience emphasizes \"discovery\" and balancing \"speed and joy\"—not just transactional efficiency. Active digital users reached 3.3M in Q1 2024 (+22% YoY), proving the channel strategy is converting. [Source: https://technical.ly/software-development/cava-redesigned-app/]\n\nMissing from the communications landscape: traditional advertising (minimal TV, radio, print), brand partnerships beyond creators (no sports/entertainment sponsorships), cause marketing (no visible sustainability/community initiatives despite ingredient sourcing claims), and educational content about Mediterranean cuisine's health benefits, regional diversity, or culinary heritage. The approach is working (18.1% comps, 12.9% traffic growth) but lacks the authority-building that could defend against competitive encroachment or accelerate awareness in new markets where consumers don't understand \"Mediterranean fast-casual.\"\n\n---",
   "story": null,
-  "findings": []
+  "findings": [
+    {
+      "sectionTitle": "Communications Strategy & Channel Mix",
+      "cards": [
+        {
+          "title": "Digital-First Strategy & Media Evolution",
+          "content": "CAVA's communications strategy is \"primarily digital,\" skewing heavily toward social media (Instagram, TikTok, Facebook) with recent streaming ad expansion (YouTube TV, Roku, Hulu) to diversify beyond platform dependence. The brand partnered with media agency Levelwing in January 2024 and hired an in-house senior manager for media buying, signaling professionalization of previously organic-heavy approach. Marketing spend increased 15% in 2024 to support 1,000-unit growth ambition and close the awareness gap (67% mature markets, 40% new markets vs. 90% competitor baseline). The strategic shift recognizes social media's discovery power but acknowledges algorithm volatility risk—streaming ads provide more controlled, sustainable awareness building in new geographic markets.\n\n[Source: https://digiday.com/marketing/why-cavas-bid-for-brand-awareness-means-prioritizing-streaming-ads/]",
+          "priority": "important"
+        },
+        {
+          "title": "Brand Voice: Confidence Meets Self-Deprecation",
+          "content": "Brand voice walks a tightrope: confident and flavor-forward in product messaging (\"Feels good to be fiery,\" \"spice up my life,\" \"broc my world\"), but self-deprecating and friend-like on social. The strategy embraces Gen Z's \"unhinged marketing\" preferences—CAVA leans into customers calling bowls \"slop,\" posts memes, and partners with comedic creators like DJ Mandy and Nolita Dirtbag (Alex Hartman). Chief Experience Officer Andy Rebhun describes the approach as \"making guests feel seen\" and \"experiencing life with them\" rather than \"talking at guests.\" This voice resonates with Flavor Seekers who want brands that feel like friends, not advertisers, but creates tension: does self-deprecation undermine premium positioning and Mediterranean authority?\n\n[Source: https://www.marketingbrew.com/stories/2024/04/22/how-self-deprecation-is-fueling-cava-s-growth]",
+          "priority": "critical"
+        }
+      ],
+      "isExpandable": true
+    },
+    {
+      "sectionTitle": "Campaign Execution & Social Performance",
+      "cards": [
+        {
+          "title": "Social Media Mastery & Viral Moments",
+          "content": "Recent campaigns demonstrate social media mastery. The grilled steak launch generated millions of social impressions through \"powerful\" social activation. Instagram dating series \"Bowlmates\" (hosted by comedian Daniela Mora) earned 300K+ views on first two episodes with zero paid media. Influencer Cody Premer's CAVA post hit 3.7M likes—CEO Brett Schulman called it \"part of the cultural conversation\" showing \"how much people love our food.\" These organic moments deliver reach traditional advertising can't match, but dependency on platform algorithms and creator whims creates sustainability concerns. The brand achieved 3.3M active digital users in Q1 2024 (+22% YoY), proving the channel strategy is converting awareness into trial.\n\n[Source: https://www.marketingbrew.com/stories/2025/10/24/cava-bowlmates-instagram-social-dating-series]",
+          "priority": "important"
+        },
+        {
+          "title": "Digital Infrastructure Supporting Experience",
+          "content": "Digital infrastructure supports the messaging: redesigned app launched with \"walk-the-line\" visual UX mirroring in-restaurant customization, built on React/Elixir for concurrent ordering at scale. App features include order-ahead, favorites heart system, large-format family orders, and future group ordering capabilities. The experience emphasizes \"discovery\" and balancing \"speed and joy\"—not just transactional efficiency. This infrastructure enables personalized marketing, loyalty program evolution, and data collection on Flavor Seeker preferences. The gap: while execution is strong, CAVA lacks consistent educational content about Mediterranean cuisine's health benefits, regional diversity, or culinary heritage that could build category authority.\n\n[Source: https://technical.ly/software-development/cava-redesigned-app/]",
+          "priority": "supporting"
+        }
+      ],
+      "isExpandable": false
+    },
+    {
+      "sectionTitle": "Strategic Gaps & Opportunities",
+      "cards": [
+        {
+          "title": "Missing: Mediterranean Authority & Educational Content",
+          "content": "Missing from the communications landscape: traditional advertising (minimal TV, radio, print), brand partnerships beyond creators (no sports/entertainment sponsorships), cause marketing (no visible sustainability/community initiatives despite ingredient sourcing claims), and educational content about Mediterranean cuisine's health benefits, regional diversity, or culinary heritage. The approach is working (18.1% comps, 12.9% traffic growth historically) but lacks the authority-building that could defend against competitive encroachment or accelerate awareness in new markets where consumers don't understand \"Mediterranean fast-casual.\" Strategic opportunity: layer Mediterranean expertise and health credentials onto existing social-first approach, creating both cultural relevance and category defensibility before Chipotle or Panera test Mediterranean offerings.\n\n[Source: Analysis of communications landscape]",
+          "priority": "important"
+        }
+      ],
+      "isExpandable": false
+    }
+  ]
 }

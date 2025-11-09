@@ -15,5 +15,38 @@
   ],
   "situationSnapshot": "CAVA operates 415 company-owned Mediterranean fast-casual restaurants (up from 352 one year ago) on track to generate $1.2B+ in fiscal 2025 revenue (+20.0% YoY in Q3 2025). The business model mirrors Chipotle—assembly-line customization with premium ingredients—but introduces bold Mediterranean flavors (harissa honey chicken, house-made hummus, tzatziki, new chicken shawarma) to differentiate from saturated Mexican and salad segments. [Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]\n\nUnit economics remain best-in-class despite margin compression: $2.9M average unit volumes (up from $2.8M), 24.6% restaurant-level profit margins (down 100bps from 25.6% due to tariff impacts and third-party delivery mix), and ~$390K operating profit per store. Critically, the 2025 new unit cohort is trending above $3M AUV with productivity exceeding 100%, demonstrating \"brand's portability and resonance across the country.\" The company opened 48 net new restaurants through Q3 2025, on pace for 68-70 annual openings, targeting 1,000 units by 2032. [Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]\n\nThe macro reality shift: Q3 2025 same-store sales growth decelerated to 1.9% (versus 18.1% prior year) with guest traffic approximately flat. However, this represents market share gain as industry traffic declined 3.3%. Revenue growth of 20.0% demonstrates the power of new unit expansion offsetting mature market normalization. Digital strength continues at 37.6% of sales, supporting $3M+ AUVs through omnichannel convenience. [Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]\n\nThe growth challenge remains awareness: only 67% in CAVA's most mature market (DC/MD/VA) versus 90% for established chains, dropping to 40% in new markets. The company increased marketing spend 15% in 2024, prioritizing streaming ads and social media (25% follower growth, 30% engagement lift from UGC campaigns). With new units proving strong economics nationwide, the bottleneck is brand recognition, not unit-level viability. [Source: https://digiday.com/marketing/why-cavas-bid-for-brand-awareness-means-prioritizing-streaming-ads/]\n\n---",
   "story": null,
-  "findings": []
+  "findings": [
+    {
+      "sectionTitle": "Business Model & Financial Performance",
+      "cards": [
+        {
+          "title": "Core Business Model & Growth Trajectory",
+          "content": "CAVA operates 415 company-owned Mediterranean fast-casual restaurants (up from 352 one year ago) on track to generate $1.2B+ in fiscal 2025 revenue (+20.0% YoY in Q3 2025). The business model mirrors Chipotle—assembly-line customization with premium ingredients—but introduces bold Mediterranean flavors (harissa honey chicken, house-made hummus, tzatziki, new chicken shawarma) to differentiate from saturated Mexican and salad segments. The company opened 48 net new restaurants through Q3 2025, on pace for 68-70 annual openings, targeting 1,000 units by 2032.\n\n[Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]",
+          "priority": "critical"
+        },
+        {
+          "title": "Unit Economics & Operational Excellence",
+          "content": "Unit economics remain best-in-class despite margin compression: $2.9M average unit volumes (up from $2.8M), 24.6% restaurant-level profit margins (down 100bps from 25.6% due to tariff impacts and third-party delivery mix), and approximately $390K operating profit per store. Critically, the 2025 new unit cohort is trending above $3M AUV with productivity exceeding 100%, demonstrating \"brand's portability and resonance across the country.\" This performance validates national scalability even as mature markets normalize. Digital strength continues at 37.6% of sales, supporting $3M+ AUVs through omnichannel convenience.\n\n[Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]",
+          "priority": "critical"
+        }
+      ],
+      "isExpandable": true
+    },
+    {
+      "sectionTitle": "Market Dynamics & Competitive Position",
+      "cards": [
+        {
+          "title": "Same-Store Sales Reality & Market Share Gains",
+          "content": "The macro reality shift: Q3 2025 same-store sales growth decelerated to 1.9% (versus 18.1% prior year) with guest traffic approximately flat. However, this represents market share gain as industry traffic declined 3.3%. Revenue growth of 20.0% demonstrates the power of new unit expansion offsetting mature market normalization. The key insight: CAVA is not stagnating—they're holding share while the entire fast-casual category contracts, proving Mediterranean positioning provides defensive moat during macroeconomic pressure (student loan resumptions, wage stagnation, 25-35 age demographic down 15%).\n\n[Source: https://investor.cava.com/news/news-details/2025/CAVA-Group-Reports-Third-Quarter-2025-Results/default.aspx]",
+          "priority": "important"
+        },
+        {
+          "title": "Brand Awareness: The Growth Bottleneck",
+          "content": "The growth challenge remains awareness: only 67% in CAVA's most mature market (DC/MD/VA) versus 90% for established chains, dropping to 40% in new markets. The company increased marketing spend 15% in 2024, prioritizing streaming ads and social media (25% follower growth, 30% engagement lift from UGC campaigns). With new units proving strong economics nationwide ($3M+ AUV for 2025 cohort with 100%+ productivity), the bottleneck is not unit-level viability but brand recognition. This creates strategic urgency: accelerate brand-building now while competitors struggle, establishing Mediterranean category ownership before market conditions improve and competitive intensity returns.\n\n[Source: https://digiday.com/marketing/why-cavas-bid-for-brand-awareness-means-prioritizing-streaming-ads/]",
+          "priority": "critical"
+        }
+      ],
+      "isExpandable": false
+    }
+  ]
 }
